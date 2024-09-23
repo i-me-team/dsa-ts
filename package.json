@@ -1,0 +1,11 @@
+{
+  "name": "dsa-ts",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "type": "module",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
