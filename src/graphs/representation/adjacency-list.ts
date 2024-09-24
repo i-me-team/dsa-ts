@@ -75,6 +75,30 @@ export default class Graph<T> {
     return result;
   }
 
+  dfs(start: T): T[] {
+    const result: T[] = [];
+    const visited = new Set<T>();
+
+    const dfsHelper = (vertex: T) => {
+      // Base case: if the vertex has been visited, return
+      if (visited.has(vertex)) return;
+
+      // Mark the vertex as visited and add it to the result
+      visited.add(vertex);
+      result.push(vertex);
+
+      // Recursively visit all neighbors
+      for (const neighbor of this.getNeighbors(vertex)) {
+        dfsHelper(neighbor);
+      }
+    };
+
+    // Start the DFS from the given vertex
+    dfsHelper(start);
+
+    return result;
+  }
+
   printGraph(): void {
     for (const [vertex, edges] of this.adjacencyList) {
       logger(
