@@ -1,4 +1,5 @@
 import logger from '../../../utils/logger.ts';
+import Queue from '../../queue/queue.ts';
 
 type Weight = number;
 type Edge<T> = [T, Weight];
@@ -46,8 +47,32 @@ export default class Graph<T> {
     this.adjacencyList.delete(vertex);
   }
 
-  getNeighbors(vertex: T): Edge<T>[] {
-    return this.adjacencyList.get(vertex) || [];
+  getNeighbors(vertex: T): T[] {
+    return this.adjacencyList.get(vertex)?.map(([e]) => e) || [];
+  }
+
+  // Traversals
+  bfs(vertex: T): T[] {
+    const queue = new Queue<T>();
+    const visited = new Set<T>();
+    const result: T[] = [];
+
+    queue.enqueue(vertex);
+    visited.add(vertex);
+
+    while (!queue.isEmpty()) {
+      const currentVertex = queue.dequeue();
+      result.push(currentVertex);
+
+      for (let neighbor of this.getNeighbors(currentVertex)) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.enqueue(neighbor);
+        }
+      }
+    }
+
+    return result;
   }
 
   printGraph(): void {
