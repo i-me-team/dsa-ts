@@ -11,6 +11,15 @@ export default class Graph<T> {
     this.adjacencyList = new Map<T, Edge<T>[]>();
   }
 
+  // getter
+  /**
+   * Returns array of vertices
+   * @returns {T[]}
+   */
+  verticesList(): T[] {
+    return Array.from(this.adjacencyList.keys());
+  }
+
   addVertex(vertex: T): void {
     if (!this.adjacencyList.has(vertex)) {
       this.adjacencyList.set(vertex, []);
