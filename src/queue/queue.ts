@@ -12,7 +12,7 @@ export default class Queue<T> {
   }
 
   enqueue(item: T): number {
-    if (!item) {
+    if (item === undefined || item === null) {
       throw new Error('Nothing to enqueue');
     }
     this.queue[this.rear++] = item;

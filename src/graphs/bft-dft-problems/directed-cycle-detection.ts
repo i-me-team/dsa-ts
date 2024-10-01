@@ -1,3 +1,4 @@
+import Queue from '../../queue/queue.ts';
 import type Graph from '../representation/adjacency-list.ts';
 
 export function directedHasCycleDFS(graph: Graph<number>): boolean {
@@ -36,4 +37,32 @@ export function directedHasCycleDFS(graph: Graph<number>): boolean {
   }
 
   return false;
+}
+
+export function directedHasCycleBFS(graph: Graph<number>): boolean {
+  const V = graph.verticesList().length;
+  const q = new Queue<number>();
+  const inDegrees: number[] = new Array(V).fill(0);
+  const res: number[] = [];
+
+  for (let i = 0; i < V; i++) {
+    for (let neighbor of graph.getNeighbors(i)) {
+      inDegrees[neighbor]++;
+    }
+  }
+
+  inDegrees.forEach((el, idx) => el === 0 && q.enqueue(idx));
+
+  while (!q.isEmpty()) {
+    const vtx = q.dequeue();
+    res.push(vtx);
+    for (let nbr of graph.getNeighbors(vtx)) {
+      inDegrees[nbr]--;
+      if (inDegrees[nbr] === 0) {
+        q.enqueue(nbr);
+      }
+    }
+  }
+
+  return !(res.length === V);
 }
