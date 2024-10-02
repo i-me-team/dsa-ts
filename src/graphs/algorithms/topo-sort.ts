@@ -1,10 +1,21 @@
 /**
+ * Definition: Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u-v, vertex u comes before v in the ordering.
+ *
  * Time: O(V + E)
  * Space: O(n)
  */
 
 import Queue from '../../queue/queue.ts';
 import type Graph from '../representation/adjacency-list.ts';
+
+/**
+ * 1. Create a stack for storing the vertex ordering.
+ * 2. Run a loop from 0 to V - 1.
+ * 3. If the vertex is not marked as visited, apply DFS.
+ * 4. Once the DFS ends it shows that all the vertices which are already coming in the ordering before will be added. It means that the last/terminal node will only be added to stack(result) once all the other vertices which lead to that terminal node are added.
+ * 5. Return the result. In javascript we use array for demonstrating stack so return the reversed result.
+ *
+ */
 
 export function topologicalSortDFS(graph: Graph<number>): number[] {
   const visited = new Set<number>();

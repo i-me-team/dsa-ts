@@ -11,7 +11,6 @@ export default class Graph<T> {
     this.adjacencyList = new Map<T, Edge<T>[]>();
   }
 
-  // getter
   /**
    * Returns array of vertices
    * @returns {T[]}
