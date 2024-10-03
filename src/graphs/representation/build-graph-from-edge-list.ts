@@ -1,4 +1,4 @@
-interface Edge {
+export interface Edge {
   to: number;
   weight?: number;
 }
