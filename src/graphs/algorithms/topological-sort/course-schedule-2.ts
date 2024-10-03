@@ -3,7 +3,7 @@
  * Watch out for  way to build graph from prerequisites array
  * */
 
-import Queue from '../../queue/queue.ts';
+import Queue from '../../../queue/queue.ts';
 
 export function findOrder(
   numCourses: number,

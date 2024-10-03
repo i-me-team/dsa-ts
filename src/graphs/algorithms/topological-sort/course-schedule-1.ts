@@ -1,9 +1,9 @@
-import Queue from '../../queue/queue.ts';
-
 /**
  * Key takeaway learning from this problem:
  * Learn how to create graph from given prerequisites array
  */
+
+import Queue from '../../../queue/queue.ts';
 
 export function canFinish(
   numCourses: number,
