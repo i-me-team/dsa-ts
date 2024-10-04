@@ -1,5 +1,5 @@
 import logger from '../../../../utils/logger.ts';
-import PriorityQueue from '../../../queues/PriorityQueue.ts';
+import PriorityQueue from '../../../queues/priority-queue.ts';
 
 /**
  * Time complexity of Dijkstra's algorithm is very important to derive.

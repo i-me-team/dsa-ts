@@ -1,4 +1,4 @@
-import MinHeap from '../heaps/MinHeap.ts';
+import MinHeap from '../heaps/min-heap.ts';
 
 export default class PriorityQueue<T> {
   private heap: MinHeap<{ priority: number; value: T }>;
