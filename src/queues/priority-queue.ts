@@ -1,28 +1,26 @@
 import MinHeap from '../heaps/min-heap.ts';
 
 export default class PriorityQueue<T> {
-  private heap: MinHeap<{ priority: number; value: T }>;
+  private heap: MinHeap<T>;
 
-  constructor() {
-    this.heap = new MinHeap((a, b) => a.priority - b.priority);
+  constructor(compareFunction: (a: T, b: T) => number) {
+    this.heap = new MinHeap<T>(compareFunction);
   }
 
   get size(): number {
     return this.heap.size();
   }
 
-  public enqueue(value: T, priority: number): void {
-    this.heap.insert({ priority, value });
+  public enqueue(value: T): void {
+    this.heap.insert(value);
   }
 
   public dequeue(): T | undefined {
-    const min = this.heap.extractMin();
-    return min ? min.value : undefined;
+    return this.heap.extractMin();
   }
 
   public peek(): T | undefined {
-    const min = this.heap.peek();
-    return min ? min.value : undefined;
+    return this.heap.peek();
   }
 
   public isEmpty(): boolean {

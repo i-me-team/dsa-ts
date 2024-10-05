@@ -19,9 +19,10 @@ export default class MinHeap<T> {
   }
 
   private swap(index1: number, index2: number): void {
-    const temp = this.heap[index1];
-    this.heap[index1] = this.heap[index2];
-    this.heap[index2] = temp;
+    [this.heap[index1], this.heap[index2]] = [
+      this.heap[index2],
+      this.heap[index1],
+    ];
   }
 
   private bubbleUp(): void {

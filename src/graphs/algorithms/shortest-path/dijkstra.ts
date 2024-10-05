@@ -7,22 +7,24 @@ import PriorityQueue from '../../../queues/priority-queue.ts';
  */
 
 export function dijkstra(V: number, Adj: number[][][], S: number) {
-  const pq = new PriorityQueue<number>();
+  const pq = new PriorityQueue<[number, number]>(
+    (a: number[], b: number[]) => a[1] - b[1],
+  );
   const distances = new Array(V).fill(Infinity); // O(V) time
 
   // Init phase
-  pq.enqueue(S, 0);
+  pq.enqueue([S, 0]);
   distances[S] = 0;
 
   while (!pq.isEmpty()) {
-    const node = pq.dequeue()!; // O(log V). Now since pq can contain all the vertices. So worst case O(V logV)
+    const [node, dist] = pq.dequeue()!; // O(log V). Now since pq can contain all the vertices. So worst case O(V logV)
 
     for (let [v, wt] of Adj[node]) {
-      const newDist = distances[node] + wt;
+      const newDist = dist + wt;
       // Called relaxation
       if (newDist < distances[v]) {
         distances[v] = newDist;
-        pq.enqueue(v, newDist); // O(log V). Now since in worst case the relaxation takes O(E logV). Why E? Because the relaxation can happen for all the Edges of the graph.
+        pq.enqueue([v, newDist]); // O(log V). Now since in worst case the relaxation takes O(E logV). Why E? Because the relaxation can happen for all the Edges of the graph.
       }
     }
   }
