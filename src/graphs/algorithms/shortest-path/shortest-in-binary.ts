@@ -1,7 +1,6 @@
 // Problem link: https://leetcode.com/problems/shortest-path-in-binary-matrix/
 // Here I did this problem with Dijkstra's approach using PriorityQueue. But if you look closely there is no need to use that. Why? Unit weight --> Best algorithm is BFS
 
-import PriorityQueue from '../../../queues/priority-queue.ts';
 import Queue from '../../../queues/queue.ts';
 
 const DIRECTIONS = [

@@ -4,7 +4,7 @@
  * Space: O(N) for storing each word in Queue and/or Set
  */
 
-import Queue from '../../../queue/queue.ts';
+import Queue from '../../../queues/queue.ts';
 
 type WordLevelPair = [word: string, level: number];
 

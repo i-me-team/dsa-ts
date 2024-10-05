@@ -4,7 +4,7 @@
  * Time: O(mxn) for every nodes
  */
 
-import Queue from '../../queue/queue.ts';
+import Queue from '../../queues/queue.ts';
 
 type IndicesTimePair = [number, number, number];
 

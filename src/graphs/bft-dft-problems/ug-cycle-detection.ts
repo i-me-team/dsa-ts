@@ -1,4 +1,4 @@
-import Queue from '../../queue/queue.ts';
+import Queue from '../../queues/queue.ts';
 import Graph from '../representation/adjacency-list.ts';
 
 /**

@@ -1,5 +1,5 @@
 import logger from '../../../utils/logger.ts';
-import Queue from '../../queue/queue.ts';
+import Queue from '../../queues/queue.ts';
 
 type Weight = number;
 type Edge<T> = [T, Weight];

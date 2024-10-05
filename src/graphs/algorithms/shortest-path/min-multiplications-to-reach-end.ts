@@ -9,6 +9,7 @@ export function minimumMultiplications(
 ): number {
   const distances = new Array(100000).fill(Infinity);
   const pq = new PriorityQueue<[number, number]>((a, b) => a[0] - b[0]);
+  const MOD = 1e5;
   // init phase
   distances[start] = 0;
   pq.enqueue([0, start]);
@@ -19,7 +20,7 @@ export function minimumMultiplications(
     if (node === end) break;
 
     arr.forEach((el) => {
-      const newNode = (el * node) % 10 ** 5;
+      const newNode = (el * node) % MOD;
       const newStep = steps + 1;
       if (newStep < distances[newNode]) {
         distances[newNode] = newStep;
