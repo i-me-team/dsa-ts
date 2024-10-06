@@ -5,8 +5,8 @@
  * Space: O(n)
  */
 
-import Queue from '../../queue/queue.ts';
-import type Graph from '../representation/adjacency-list.ts';
+import Queue from '../../../queues/queue.ts';
+import type Graph from '../../representation/adjacency-list.ts';
 
 /**
  * 1. Create a stack for storing the vertex ordering.

@@ -4,7 +4,7 @@
  * Space Complexity: O(m*n)
  */
 
-import Queue from '../../queue/queue.ts';
+import Queue from '../../queues/queue.ts';
 
 const DIRECTIONS = [
   [-1, 0],

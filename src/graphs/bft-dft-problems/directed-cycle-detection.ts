@@ -1,4 +1,4 @@
-import Queue from '../../queue/queue.ts';
+import Queue from '../../queues/queue.ts';
 import type Graph from '../representation/adjacency-list.ts';
 
 export function directedHasCycleDFS(graph: Graph<number>): boolean {

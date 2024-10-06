@@ -1,6 +1,6 @@
 // Problem link: https://www.geeksforgeeks.org/problems/alien-dictionary/1
 
-import Queue from '../../queue/queue.ts';
+import Queue from '../../../queues/queue.ts';
 
 function topologicalSort(V: number, graph: number[][]): number[] {
   const inDegrees = new Array(V).fill(0);

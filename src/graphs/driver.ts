@@ -1,5 +1,5 @@
 import logger from '../../utils/logger.ts';
-import { topologicalSortBFS } from './algorithms/topo-sort.ts';
+import { topologicalSortBFS } from './algorithms/topological-sort/topo-sort.ts';
 import {
   hasCycleBFS,
   hasCycleDFS,
