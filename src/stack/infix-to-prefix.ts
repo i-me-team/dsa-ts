@@ -1,7 +1,10 @@
+import reverseString from '../../utils/reverse-string.ts';
+
 export type OperatorPriority = 0 | 1 | 2 | 3;
 export type Operator = '^' | '*' | '/' | '+' | '-';
 
 export default function infixToPostfix(s: string): string {
+  s = reverseString(s, false);
   const len = s.length;
   const st = [];
   const pr: Record<Operator, OperatorPriority> = {
@@ -30,7 +33,7 @@ export default function infixToPostfix(s: string): string {
       while (
         st.length > 0 &&
         st[st.length - 1] !== '(' &&
-        pr[st[st.length - 1] as Operator] >= pr[ch as Operator]
+        pr[st[st.length - 1] as Operator] > pr[ch as Operator]
       ) {
         ans += st.pop();
       }
@@ -40,5 +43,6 @@ export default function infixToPostfix(s: string): string {
   }
 
   ans += st.reverse().join('');
-  return ans;
+
+  return reverseString(ans);
 }
