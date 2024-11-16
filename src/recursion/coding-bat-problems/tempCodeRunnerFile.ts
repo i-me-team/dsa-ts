@@ -1,1 +1,0 @@
-ros.startsWith('hi') && (!ch || ch !== 'x')
