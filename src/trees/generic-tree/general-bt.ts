@@ -101,6 +101,44 @@ export default class BinaryTree<T> {
     return res;
   }
 
+  // Using 2 stacks
+  iterativePostOrderTraversal1(): T[] {
+    // edge case
+    if (!this.root) return [];
+
+    let node = this.root;
+    const stack1: TreeNode<T>[] = [];
+    const stack2: T[] = [];
+    stack1.push(node);
+
+    while (stack1.length > 0) {
+      const nd = stack1.pop()!;
+      stack2.push(nd.value);
+      nd.left && stack1.push(nd.left);
+      nd.right && stack1.push(nd.right);
+    }
+    return stack2.reverse();
+  }
+
+  // Using 1 stack
+  iterativePostOrderTraversal2(): T[] {
+    // edge case
+    if (!this.root) return [];
+
+    let node = this.root;
+    const stack1: TreeNode<T>[] = [];
+    const stack2: T[] = [];
+    stack1.push(node);
+
+    while (stack1.length > 0) {
+      const nd = stack1.pop()!;
+      stack2.push(nd.value);
+      nd.left && stack1.push(nd.left);
+      nd.right && stack1.push(nd.right);
+    }
+    return stack2.reverse();
+  }
+
   levelOrderTraversal(): T[][] {
     const node = this.root;
     const res: T[][] = [];
