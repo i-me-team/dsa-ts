@@ -36,6 +36,13 @@ export default class Queue<T> {
     return this.queue[this.front];
   }
 
+  peekBack(): T {
+    if (this.isEmpty()) {
+      throw new Error('Queue is empty');
+    }
+    return this.queue[this.rear];
+  }
+
   get size(): number {
     return this.rear - this.front;
   }
